@@ -13,10 +13,12 @@ class _MainPageState extends State<MainPage> {
 
   _updateNames(value){
     setState(() {
+      randomPairs.addName(value);
       names.add(value);
     });
   }
 
+  // Creates a Widget based on the names list
   List<Widget> _displayNames(){
     return new List<Widget>.generate(names.length, (int index){
       return Text(
@@ -49,11 +51,13 @@ class _MainPageState extends State<MainPage> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                ListView(
+                // Names list display
+                SafeArea(child: ListView(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   children: _displayNames()
-                ),
+                )),
+                // Names input
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -81,9 +85,11 @@ class _MainPageState extends State<MainPage> {
                 ]),
               ]
             ),
+            // Time input
             Column(
               children: <Widget>[
                 //Timer https://www.woolha.com/tutorials/flutter-date-time-datetime-picker-input-example
+                //https://www.youtube.com/watch?v=tRe8teyf9Nk
               ]
             ),
           ]
