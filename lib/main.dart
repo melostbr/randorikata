@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:random_pairs/src/screens/main_page.dart';
 
-void main() => runApp(RandomPairs());
+void main() => runApp(MyApp());
 
-class RandomPairs extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
