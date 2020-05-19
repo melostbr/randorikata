@@ -5,7 +5,7 @@ import 'package:random_pairs/src/screens/main_page.dart';
 
 void main() {
   testWidgets('Sees app name', (WidgetTester tester) async {
-    await tester.pumpWidget(RandomPairs());
+    await tester.pumpWidget(MyApp());
 
     expect(find.text('Random Pairs'), findsOneWidget);
   });
