@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 import 'package:random_pairs/src/models/random_pairs.dart';
 import 'package:random_pairs/src/widgets/names_display.dart';
@@ -25,9 +26,19 @@ class MainPage extends StatelessWidget {
               // Time input
               Column(
                 children: [
-                  //Timer https://www.woolha.com/tutorials/flutter-date-time-datetime-picker-input-example
-                  //https://www.youtube.com/watch?v=tRe8teyf9Nk
-                ]
+                FlatButton(
+                  onPressed: () {
+                    DatePicker.showTimePicker(context, showTitleActions: true, onChanged: (date) {
+                      print('change $date in time zone ' + date.timeZoneOffset.inHours.toString());
+                    }, onConfirm: (date) {
+                      print('confirm $date');
+                    }, currentTime: DateTime.now());
+                  },
+                  child: Text(
+                    'show time picker',
+                    style: TextStyle(color: Colors.blue),
+                  )),
+                  ]
               ),
             ]
           ),
