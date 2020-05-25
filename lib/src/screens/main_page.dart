@@ -12,19 +12,12 @@ class MainPage extends StatelessWidget {
         create: (context) => RandomPairs(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Stack(
             children: [
               Column(
                 children: [
-                  NamesDisplay(),
-                  NewNameInput()
-                ]
-              ),
-              // Time input
-              Column(
-                children: [
+                  Expanded(child: NamesDisplay()),
+                  NewNameInput(),
                   //Timer https://www.woolha.com/tutorials/flutter-date-time-datetime-picker-input-example
                   //https://www.youtube.com/watch?v=tRe8teyf9Nk
                 ]

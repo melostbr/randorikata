@@ -6,19 +6,23 @@ import 'package:random_pairs/src/models/random_pairs.dart';
 class NamesDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final names = Provider.of<RandomPairs>(context).names;
+    ScrollController _controller;
 
-    return SafeArea(
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        children: List<Widget>.generate(names.length, (int index){
-          return Text(
-            names[index].toString(),
-            style: TextStyle(fontSize: 16)
-          );
-        })
-      ),
-    );
+    final List<String> names = Provider.of<RandomPairs>(context).names;
+    void reorder(int a, int b) { }
+
+    return ReorderableListView(
+          scrollController: _controller,
+          onReorder: reorder,
+          children: List.generate(names.length, (int index){
+            return Card(
+              key: ValueKey('$index'),
+              child: ListTile (
+                title: Text( names[index].toString(), style: TextStyle(fontSize: 16)),
+                trailing: Icon(Icons.reorder),
+              )
+            );
+          })
+        );
   }
 }
